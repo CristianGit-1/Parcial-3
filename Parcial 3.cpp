@@ -4,8 +4,6 @@
 #include <fstream>
 #include <sstream>
 #include <windows.h>
-#include <algorithm> // Para sort
-#include <climits>   // Para INT_MAX
 
 using namespace std;
 
@@ -485,7 +483,12 @@ void mostrarProductosMenorStock() {
             }
         }
     }
-    int cantidad = min(5, n);
+    int cantidad;
+    if (n < 5) {
+        cantidad = n;  
+    } else {
+        cantidad = 5;  
+    }
     
     cout<<"ID Producto | Nombre | Stock"<<endl;
     cout<<"--------------------------------"<<endl;
